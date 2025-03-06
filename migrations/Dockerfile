@@ -1,0 +1,8 @@
+FROM gomicro/goose
+
+COPY tables /migrations
+COPY entrypoint.sh /migrations/
+
+ENTRYPOINT ["/migrations/entrypoint.sh"]
+
+

@@ -1,0 +1,39 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = ".";
+
+package rates_service;
+
+enum Currency { 
+  Market_UNSPECIFIED = 0;
+  Market_USDT = 1;
+  Market_BTC = 2;
+}
+
+
+service RatesService {
+  rpc GetRates (RatesRequest) returns (RatesResponse) {}
+} 
+
+message RatesRequest {
+  Currency currency = 1;
+}
+
+message Order {
+    string market = 1;
+    double ask = 2;
+    double bid = 3;
+    int64 timestamp = 4;
+}
+
+message RatesResponse {
+ repeated Order orders = 1;
+}
+
+
+
+
+

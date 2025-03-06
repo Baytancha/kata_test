@@ -36,6 +36,8 @@ func main() {
 	flag.IntVar(&cfg.Db.MaxIdleConns, "db-max-idle-conns", cfg.Db.MaxIdleConns, "PostgreSQL max idle connections")
 	flag.StringVar(&cfg.Db.MaxIdleTime, "db-max-idle-time", cfg.Db.MaxIdleTime, "PostgreSQL max connection idle time")
 
+	flag.Parse()
+
 	app := NewApp(cfg, logger)
 	app.Run()
 

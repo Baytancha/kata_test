@@ -16,6 +16,7 @@ make docker-stop
 make build //компиляция сервера
 docker compose up //создание образа с зависимостями
 make run //запуск сервера
+go run ./cmd - db-max-open-conns=100 - db-max-idle-conns=50 //запуск с пользовательскими флагами
 go run ./client  //запуск тестового клиента
 ```
 
